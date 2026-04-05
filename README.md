@@ -15,6 +15,9 @@ Gawean adalah aplikasi workspace all-in-one yang mirip dengan Notion, dibangun m
 - **Integrasi Supabase Auth & Database (RLS)**: Aplikasi ini telah sepenuhnya di-refactor *store*-nya (Zustand) untuk menyimpan langsung ke backend Supabase (`properties`, `pages`, `database_views`, `property_values`).
 - Terdapat gerbang authentikasi login & sign-up (`App.tsx` Gate) menggunakan `@supabase/supabase-js`.
 - File Skema database tersedia di `supabase-schema.sql`.
+- **Supabase Credentials**:
+  - **URL Project**: `https://estuvpzyycowcdkdrpze.supabase.co`
+  - **Anon Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzdHV2cHp5eWNvd2Nka2RycHplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzOTI0MTQsImV4cCI6MjA5MDk2ODQxNH0.FpnRa6aUokiHXF9ZKmWtZjtTaW1AuiEAFoIrkRGFhlE`
 
 ### ISSUE TERAKHIR (Belum Bisa)
 Bagian pendaftaran user baru (Sign-Up / Auth) **Gagal / Menghasilkan Error 500 (Database error saving new user)**. Error ini disebabkan oleh kegagalan trigger PostgreSQL bawaan (`on_auth_user_created`) yang gagal mengeksekusi `create_seed_data_for_user()`. Kegagalan memicu rollback sehingga akun pun akhirnya tidak bisa terbuat. 
