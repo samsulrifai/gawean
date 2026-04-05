@@ -1,0 +1,330 @@
+/* ============================================ */
+/*  Gawean Block Editor - Tiptap Custom Styles  */
+/* ============================================ */
+
+/* ---- Base Editor ---- */
+.block-editor {
+  width: 100%;
+}
+
+.prose-editor {
+  min-height: 200px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--foreground);
+}
+
+.prose-editor:focus {
+  outline: none;
+}
+
+/* ---- Paragraph ---- */
+.prose-editor p {
+  margin: 2px 0;
+}
+
+.prose-editor p.is-editor-empty:first-child::before {
+  color: var(--muted-foreground);
+  opacity: 0.4;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ---- Headings ---- */
+.prose-editor h1 {
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 1.2em 0 0.3em;
+  color: var(--foreground);
+}
+
+.prose-editor h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1em 0 0.25em;
+  color: var(--foreground);
+}
+
+.prose-editor h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0.8em 0 0.2em;
+  color: var(--foreground);
+}
+
+.prose-editor h1.is-empty::before,
+.prose-editor h2.is-empty::before,
+.prose-editor h3.is-empty::before {
+  color: var(--muted-foreground);
+  opacity: 0.4;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ---- Lists ---- */
+.prose-editor ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin: 4px 0;
+}
+
+.prose-editor ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin: 4px 0;
+}
+
+.prose-editor li {
+  margin: 2px 0;
+}
+
+.prose-editor li p {
+  margin: 0;
+}
+
+/* ---- Task List (Todo) ---- */
+.prose-editor .task-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 4px 0;
+}
+
+.prose-editor .task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 2px 0;
+}
+
+.prose-editor .task-item label {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.prose-editor .task-item label input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.prose-editor .task-item label input[type="checkbox"]:hover {
+  border-color: var(--primary);
+  background: var(--accent);
+}
+
+.prose-editor .task-item label input[type="checkbox"]:checked {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.prose-editor .task-item label input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--primary-foreground);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.prose-editor .task-item[data-checked="true"] > div > p {
+  text-decoration: line-through;
+  color: var(--muted-foreground);
+}
+
+/* ---- Blockquote ---- */
+.prose-editor blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1em;
+  margin: 8px 0;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+/* ---- Horizontal Rule (Divider) ---- */
+.prose-editor hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5em 0;
+}
+
+/* ---- Code Block ---- */
+.prose-editor .code-block {
+  background: var(--muted);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 12px 0;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.875em;
+  line-height: 1.7;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.prose-editor code {
+  background: var(--muted);
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875em;
+  color: var(--destructive);
+}
+
+/* ---- Code Syntax Highlighting (lowlight) ---- */
+.prose-editor .hljs-comment,
+.prose-editor .hljs-quote {
+  color: oklch(0.556 0 0);
+  font-style: italic;
+}
+
+.prose-editor .hljs-keyword,
+.prose-editor .hljs-selector-tag {
+  color: oklch(0.65 0.2 300);
+}
+
+.prose-editor .hljs-string,
+.prose-editor .hljs-attr {
+  color: oklch(0.7 0.15 145);
+}
+
+.prose-editor .hljs-number,
+.prose-editor .hljs-literal {
+  color: oklch(0.7 0.15 50);
+}
+
+.prose-editor .hljs-title,
+.prose-editor .hljs-section {
+  color: oklch(0.7 0.15 230);
+}
+
+.prose-editor .hljs-built_in {
+  color: oklch(0.7 0.12 200);
+}
+
+/* ---- Links ---- */
+.prose-editor .editor-link {
+  color: oklch(0.65 0.2 260);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.prose-editor .editor-link:hover {
+  opacity: 0.8;
+}
+
+/* ---- Images ---- */
+.prose-editor .editor-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 12px 0;
+  cursor: default;
+}
+
+.prose-editor img.ProseMirror-selectednode {
+  outline: 2px solid var(--primary);
+  border-radius: 8px;
+}
+
+/* ---- Highlight ---- */
+.prose-editor mark {
+  background-color: oklch(0.9 0.1 90);
+  border-radius: 2px;
+  padding: 1px 2px;
+}
+
+.dark .prose-editor mark {
+  background-color: oklch(0.45 0.12 90);
+}
+
+/* ---- Selection ---- */
+.prose-editor ::selection {
+  background: oklch(0.7 0.15 260 / 30%);
+}
+
+/* ---- Dropcursor ---- */
+.ProseMirror-dropcursor {
+  border-color: var(--primary) !important;
+}
+
+/* ---- Gapcursor ---- */
+.ProseMirror-gapcursor::after {
+  border-top: 1px solid var(--foreground);
+}
+
+/* ---- Tippy Slash Command Theme ---- */
+.tippy-box[data-theme~='slash-command'] {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  pointer-events: auto !important;
+}
+
+.tippy-box[data-theme~='slash-command'] .tippy-content {
+  padding: 0;
+  pointer-events: auto !important;
+}
+
+.tippy-box[data-theme~='slash-command'] .tippy-content > * {
+  pointer-events: auto !important;
+}
+
+/* Ensure the slash command popup buttons are clickable */
+.slash-command-popup {
+  pointer-events: auto !important;
+}
+
+.slash-command-popup button {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+/* ---- Animations ---- */
+@keyframes editor-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.block-editor {
+  animation: editor-fade-in 0.3s ease-out;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .prose-editor {
+    font-size: 15px;
+  }
+  .prose-editor h1 {
+    font-size: 1.6em;
+  }
+  .prose-editor h2 {
+    font-size: 1.3em;
+  }
+  .prose-editor h3 {
+    font-size: 1.1em;
+  }
+}
